@@ -17,7 +17,7 @@ namespace BakeryProject.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
+            //this is a comment
             return View();
         }
 
