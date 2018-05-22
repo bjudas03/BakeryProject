@@ -1,0 +1,28 @@
+﻿@model IEnumerable<BakeryProject.Models.Product>
+@{
+    ViewBag.Title = "Product Page";
+}
+
+<div class="jumbotron">
+    <h1>Bakery Products</h1>
+</div>
+
+<table class=" table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.ProductKey)</th>
+        <th>@Html.DisplayNameFor(model => model.ProductName)</th>
+        <th>@Html.DisplayNameFor(model => model.ProductPrice)</th>
+
+
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@Html.DisplayFor(model => item.ProductKey)</td>
+        <td>@Html.DisplayFor(model => item.ProductName)</td>
+        <td>@Html.DisplayFor(model => item.ProductPrice)</td>
+
+    </tr>
+    }
+</table>
+
