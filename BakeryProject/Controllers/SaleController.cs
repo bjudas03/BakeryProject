@@ -13,14 +13,13 @@ namespace BakeryProject.Controllers
         // GET: GrantApplication
         public ActionResult Index()
         {
-            if (Session["ReviewerKey"] == null)
+            if (Session["PersonKey"] == null)
             {
                 //Message msg = new Message("You must be logged in to add a sale");
                 //return RedirectToAction("Result", msg");
 
                 return RedirectToAction("Index", "Login");
             }
-            ViewBag.Grants = new SelectList(db.Products, "ProductKey", "ProductName","ProductPrice");
             return View();
 
         }
@@ -30,16 +29,21 @@ namespace BakeryProject.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index([Bind(Include = "SaleKey,CustomerKey,EmployeeKey,GrantApplicationRequestAmount,GrantApplicationReason," +
-            "GrantApplicationStatusKey")]GrantApplication g)
+        public ActionResult Index([Bind(Include = "SaleKey,ProductKey,SaleDetailPriceCharged, SaleDetailQuantity, SaleDetailDiscount, SaleDetailSaleTaxPercent, SaleDetailEatInTax")]SaleDetail s)
         {
             try
             {
-                g.GrantAppicationDate = DateTime.Now;
-                g.PersonKey = (int)Session["ReviewerKey"];
-                g.GrantApplicationStatusKey = (int)1;
+                Sale sale = new Sale();
+                sale.SaleDate = DateTime.Now;
+                sale.CustomerKey = (int)Session["PersonKey"];
+                sale.EmployeeKey = (int)2;
+                s.Sale = sale; 
 
-                db.GrantApplications.Add(g);
+
+                s.SaleDetailDiscount = (int)0;
+                s.SaleDetailSaleTaxPercent = (decimal).1;
+                s.SaleDetailEatInTax = (decimal).1;
+                db.SaleDetails.Add(s);
                 db.SaveChanges();
 
                 Message msg = new Message("Thank you for your purchase");

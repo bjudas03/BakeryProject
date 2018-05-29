@@ -1,0 +1,30 @@
+﻿@model IEnumerable<BakeryProject.Models.ParentModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="jumbotron">
+    <h1>Bakery Sales</h1>
+</div>
+
+<table class=" table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Model1.ProductKey)</th>
+        <th>@Html.DisplayNameFor(model => model.Model1.ProductName)</th>
+        <th>@Html.DisplayNameFor(model => model.Model1.ProductPrice)</th>
+
+
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(model => item.Model1.ProductKey)</td>
+            <td>@Html.DisplayFor(model => item.Model1.ProductName)</td>
+            <td>@Html.DisplayFor(model => item.Model1.ProductPrice)</td>
+
+        </tr>
+    }
+</table>
+
