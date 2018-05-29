@@ -30,7 +30,7 @@ namespace BakeryProject.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index([Bind(Include = "PersonKey,GrantApplicationDate,GrantTypeKey,GrantApplicationRequestAmount,GrantApplicationReason," +
+        public ActionResult Index([Bind(Include = "SaleKey,CustomerKey,EmployeeKey,GrantApplicationRequestAmount,GrantApplicationReason," +
             "GrantApplicationStatusKey")]GrantApplication g)
         {
             try
@@ -42,7 +42,7 @@ namespace BakeryProject.Controllers
                 db.GrantApplications.Add(g);
                 db.SaveChanges();
 
-                Message msg = new Message("Thank you for your Grant Application");
+                Message msg = new Message("Thank you for your purchase");
                 return RedirectToAction("Result", msg);
 
             }
