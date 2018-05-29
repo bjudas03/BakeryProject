@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using BakeryProject.Models;
 
 //test merge
 namespace BakeryProject.Controllers
@@ -11,6 +12,7 @@ namespace BakeryProject.Controllers
     {
         public ActionResult Index()
         {
+            BakeryEntities db = new BakeryEntities();
             return View();
         }
 
