@@ -73,7 +73,7 @@
           <Property Name="SaleDetailSaleTaxPercent" Type="decimal" Precision="10" Scale="2" />
           <Property Name="SaleDetailEatInTax" Type="decimal" Precision="10" Scale="2" />
         </EntityType>
-        <Association Name="FK__BakeryLog__Perso__34C8D9D1">
+        <Association Name="FK__BakeryLog__Perso__48CFD27E">
           <End Role="Person" Type="Self.Person" Multiplicity="0..1" />
           <End Role="BakeryLog" Type="Self.BakeryLog" Multiplicity="*" />
           <ReferentialConstraint>
@@ -85,7 +85,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Employee__Person__35BCFE0A">
+        <Association Name="FK__Employee__Person__49C3F6B7">
           <End Role="Person" Type="Self.Person" Multiplicity="0..1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
           <ReferentialConstraint>
@@ -97,7 +97,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Sale__CustomerKe__36B12243">
+        <Association Name="FK__Sale__CustomerKe__4AB81AF0">
           <End Role="Person" Type="Self.Person" Multiplicity="0..1" />
           <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
           <ReferentialConstraint>
@@ -109,7 +109,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Sale__EmployeeKe__37A5467C">
+        <Association Name="FK__Sale__EmployeeKe__4BAC3F29">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="Sale" Type="Self.Sale" Multiplicity="*" />
           <ReferentialConstraint>
@@ -121,7 +121,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SaleDetai__Produ__38996AB5">
+        <Association Name="FK__SaleDetai__Produ__4CA06362">
           <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
           <End Role="SaleDetail" Type="Self.SaleDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -133,7 +133,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SaleDetai__SaleK__398D8EEE">
+        <Association Name="FK__SaleDetai__SaleK__4D94879B">
           <End Role="Sale" Type="Self.Sale" Multiplicity="0..1" />
           <End Role="SaleDetail" Type="Self.SaleDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -168,27 +168,27 @@
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sale" EntityType="Self.Sale" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SaleDetail" EntityType="Self.SaleDetail" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__BakeryLog__Perso__34C8D9D1" Association="Self.FK__BakeryLog__Perso__34C8D9D1">
+          <AssociationSet Name="FK__BakeryLog__Perso__48CFD27E" Association="Self.FK__BakeryLog__Perso__48CFD27E">
             <End Role="Person" EntitySet="Person" />
             <End Role="BakeryLog" EntitySet="BakeryLog" />
           </AssociationSet>
-          <AssociationSet Name="FK__Employee__Person__35BCFE0A" Association="Self.FK__Employee__Person__35BCFE0A">
+          <AssociationSet Name="FK__Employee__Person__49C3F6B7" Association="Self.FK__Employee__Person__49C3F6B7">
             <End Role="Person" EntitySet="Person" />
             <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
-          <AssociationSet Name="FK__Sale__CustomerKe__36B12243" Association="Self.FK__Sale__CustomerKe__36B12243">
+          <AssociationSet Name="FK__Sale__CustomerKe__4AB81AF0" Association="Self.FK__Sale__CustomerKe__4AB81AF0">
             <End Role="Person" EntitySet="Person" />
             <End Role="Sale" EntitySet="Sale" />
           </AssociationSet>
-          <AssociationSet Name="FK__Sale__EmployeeKe__37A5467C" Association="Self.FK__Sale__EmployeeKe__37A5467C">
+          <AssociationSet Name="FK__Sale__EmployeeKe__4BAC3F29" Association="Self.FK__Sale__EmployeeKe__4BAC3F29">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Sale" EntitySet="Sale" />
           </AssociationSet>
-          <AssociationSet Name="FK__SaleDetai__Produ__38996AB5" Association="Self.FK__SaleDetai__Produ__38996AB5">
+          <AssociationSet Name="FK__SaleDetai__Produ__4CA06362" Association="Self.FK__SaleDetai__Produ__4CA06362">
             <End Role="Product" EntitySet="Product" />
             <End Role="SaleDetail" EntitySet="SaleDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK__SaleDetai__SaleK__398D8EEE" Association="Self.FK__SaleDetai__SaleK__398D8EEE">
+          <AssociationSet Name="FK__SaleDetai__SaleK__4D94879B" Association="Self.FK__SaleDetai__SaleK__4D94879B">
             <End Role="Sale" EntitySet="Sale" />
             <End Role="SaleDetail" EntitySet="SaleDetail" />
           </AssociationSet>

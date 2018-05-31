@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BakeryProject.Models.ParentModel>
+﻿@model IEnumerable<BakeryProject.Models.Product>
 
 @{
     ViewBag.Title = "Index";
@@ -10,9 +10,10 @@
 
 <table class=" table">
     <tr>
-        <th>@Html.DisplayNameFor(model => model.Model1.ProductKey)</th>
-        <th>@Html.DisplayNameFor(model => model.Model1.ProductName)</th>
-        <th>@Html.DisplayNameFor(model => model.Model1.ProductPrice)</th>
+        <th>@Html.DisplayNameFor(model => model.ProductKey)</th>
+        <th>@Html.DisplayNameFor(model => model.ProductName)</th>
+        <th>@Html.DisplayNameFor(model => model.ProductPrice)</th>
+        <th>"Quantity"</th>
 
 
 
@@ -20,9 +21,10 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>@Html.DisplayFor(model => item.Model1.ProductKey)</td>
-            <td>@Html.DisplayFor(model => item.Model1.ProductName)</td>
-            <td>@Html.DisplayFor(model => item.Model1.ProductPrice)</td>
+            <td>@Html.DisplayFor(model => item.ProductKey)</td>
+            <td>@Html.DisplayFor(model => item.ProductName)</td>
+            <td>@Html.DisplayFor(model => item.ProductPrice)</td>
+            <td></td>
 
         </tr>
     }

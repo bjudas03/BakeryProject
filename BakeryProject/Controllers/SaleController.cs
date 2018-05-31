@@ -20,7 +20,7 @@ namespace BakeryProject.Controllers
 
                 return RedirectToAction("Index", "Login");
             }
-            return View();
+            return View(db.Products.ToList());
 
         }
 
