@@ -170,6 +170,7 @@
     <Compile Include="Models\BusinessRule.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\NewPerson.cs" />
     <Compile Include="Models\Message.cs" />
