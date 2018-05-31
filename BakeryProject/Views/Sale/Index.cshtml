@@ -1,0 +1,38 @@
+﻿@model IEnumerable<BakeryProject.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="jumbotron">
+    <h1>Bakery Sales</h1>
+</div>
+
+<table class=" table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.ProductName)</th>
+        <th>@Html.DisplayNameFor(model => model.ProductPrice)</th>
+        <th>"Quantity"</th>
+
+
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(model => item.ProductName)</td>
+            <td>@Html.DisplayFor(model => item.ProductPrice)</td>
+            <td>@Html.TextBox("SaleDetailQuantity", "0", new { @class = "form-control" })</td>
+
+        </tr>
+    }
+
+
+</table>
+
+<div class="form-group">
+    <div class="col-md-offset-6 col-md-7">
+        <input type="submit" value="Purchase" class="btn btn-default" />
+    </div>
+</div>
+
