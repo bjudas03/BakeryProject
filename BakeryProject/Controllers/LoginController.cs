@@ -40,11 +40,12 @@ namespace BakeryProject.Controllers
                 msg.MessageText = "Invalid Login";
             }
             return View("Result", msg);
+
         }
 
         public ActionResult Result(Message msg)
         {
-            return View(msg);
+            return View();
         }
 
     }
