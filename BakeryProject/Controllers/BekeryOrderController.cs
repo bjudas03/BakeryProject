@@ -9,7 +9,7 @@ namespace BakeryProject.Controllers
 {
     public class BekeryOrderController : Controller
     {
-        //reference the DB
+        
         BakeryEntities db = new BakeryEntities();
 
         // GET: BekeryOrder
@@ -22,13 +22,11 @@ namespace BakeryProject.Controllers
                 return RedirectToAction("Result", m);
             }
 
-            //create the Order object
             Order o = new Order();
 
-            //I write the order object to a session so it can retain its values otherwise the order refreshes each time the form is used and loses all its values
             Session["orders"] = o;
 
-            //viewbag to send product list for dropdown in form
+            
             ViewBag.products = new SelectList(db.Products, "ProductKey", "ProductName");
 
             return View();
@@ -39,11 +37,7 @@ namespace BakeryProject.Controllers
 
         public ActionResult Index([Bind(Include = "ProductKey,ProductName,Price,Quantity, Discount")]Item i)
         {
-            //for the reciept I want to populate the names and prices
-            //of the products, so I do a query to get those fields
-            //from the database based on the productkey,
-            //then I loop through the results and write them to the Item
-            //object
+
             var prod = from p in db.Products
                        where p.ProductKey == i.ProductKey
                        select new { p.ProductName, p.ProductPrice };
@@ -53,35 +47,32 @@ namespace BakeryProject.Controllers
                 i.ProductName = pr.ProductName.ToString();
                 i.Price = (decimal)pr.ProductPrice;
             }
-            //get the order back from the Session.
-            //This is not ideal because it involves a lot of server
-            //traffic
+     
             Order o = (Order)Session["Orders"];
-            //add the item to the Items list in the Order class
+            
             o.AddItem(i);
-            //write the object back to the session
+            
             Session["Orders"] = o;
-            //Since we are using the form more than once in a single session
-            //need to refresh the viewbag
+            
             ViewBag.products = new SelectList(db.Products, "ProductKey", "ProductName");
             return View();
         }
 
+        //write data to database and send to receipt
         public ActionResult FinishOrder()
         {
-            //here I want to write the sale and saledetail to the database and then pass the order onto the Reciept view
+            
             Sale sale = new Sale();
             sale.EmployeeKey = 1;
             sale.SaleDate = DateTime.Now;
             sale.CustomerKey = (int)Session["PersonKey"];
             db.Sales.Add(sale);
 
-            //get the order back from the Session
+            
             Order o = (Order)Session["orders"];
-            //get the items list from the order object
+      
             List<Item> saleItems = o.GetItems();
-            //Loop through them and write the values
-            //to the SaleDetails object
+
             foreach (Item i in saleItems)
             {
                 SaleDetail sd = new SaleDetail();
@@ -95,12 +86,10 @@ namespace BakeryProject.Controllers
 
                 db.SaleDetails.Add(sd);
             }
-            //save all the changes
+            
             db.SaveChanges();
 
-            //Make sure all the calculations are done
-            //before passing the Orders object
-            //to the reciept
+      
             o.CalculateSubTotal();
             o.CalculateDiscount();
             o.CalculateSubAfterDiscount();
