@@ -20,29 +20,28 @@ namespace BakeryProject.Models
 
         public decimal Discount { set; get; }
 
-        //construtor
+
         public Order()
         {
-            //initialize the list object
+
             items = new List<Item>();
         }
 
         public void AddItem(Item i)
         {
-            //add items to list
+
             items.Add(i);
         }
 
         public List<Item> GetItems()
         {
-            //get the list
+
             return items;
         }
 
         public void CalculateSubTotal()
         {
-            //loops through the items
-            //to get the subtotal
+
             decimal sum = 0;
 
             foreach (Item i in items)
@@ -55,8 +54,7 @@ namespace BakeryProject.Models
 
         public void CalculateDiscount()
         {
-            //loops through the items
-            //to calculate total discounts
+
             decimal discount = 0;
             foreach (Item i in items)
             {
@@ -67,12 +65,12 @@ namespace BakeryProject.Models
 
         public void CalculateSubAfterDiscount()
         {
-            //subtracts discounts from subtotal
+
             SubTotalAfterDiscount = SubTotal - Discount;
         }
         public void CalculateTax()
         {
-            //calculates tax
+
             decimal tax = 0M;
             tax = SubTotal * .09M;
             Tax = tax;
@@ -81,7 +79,7 @@ namespace BakeryProject.Models
 
         public void CalculateTotal()
         {
-            //calculates the total
+
             Total = SubTotalAfterDiscount + Tax;
         }
     }

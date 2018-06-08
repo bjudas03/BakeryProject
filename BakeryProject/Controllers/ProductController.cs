@@ -12,9 +12,7 @@ namespace BakeryProject.Controllers
     {
         public ActionResult Index()
         {
-            //initialize entities classes
             BakeryEntities db = new BakeryEntities();
-            //pass the collection categories to the index as a list
             return View(db.Products.ToList());
         }
     }

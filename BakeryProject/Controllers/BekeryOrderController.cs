@@ -58,7 +58,6 @@ namespace BakeryProject.Controllers
             return View();
         }
 
-        //write data to database and send to receipt
         public ActionResult FinishOrder()
         {
             
